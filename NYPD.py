@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 import datetime
 import requests
 import io
+import config
 
 # import dataset
 url = "https://raw.githubusercontent.com/arb-ox/nypd/main/NYPD_Arrest_Data__Year_to_Date_.csv"
@@ -27,7 +28,7 @@ top_10 = df["OFNS_DESC"].value_counts()[:10]
 df = df[df["OFNS_DESC"].isin(top_10.index)]
 
 # define variables and set mapbox accesstoken
-mapbox_accesstoken = private_api_key
+mapbox_accesstoken = config.mapbox_accesstoken
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September"]
 
 # run app
