@@ -4,7 +4,6 @@ import plotly.express as px
 from dash import dash, html, dcc
 from dash.dependencies import Input, Output
 import datetime
-import config
 import requests
 import io
 
@@ -28,7 +27,7 @@ top_10 = df["OFNS_DESC"].value_counts()[:10]
 df = df[df["OFNS_DESC"].isin(top_10.index)]
 
 # define variables and set mapbox accesstoken
-mapbox_accesstoken = config.mapbox_accesstoken
+mapbox_accesstoken = private_api_key
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September"]
 
 # run app
